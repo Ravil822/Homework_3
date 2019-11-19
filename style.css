@@ -1,0 +1,37 @@
+
+
+#display{
+    height: 120px;
+    width: 100%;
+    border-style: dashed;
+    border-color: lightgrey;
+    border-radius: 10px;
+
+}   
+
+h4 {
+    border-bottom: 2px solid lightgray;
+}
+
+button {
+    border-radius: 20px;
+    color: white;
+    padding: 5px 20px 5px 20px;
+
+}
+ #buttom {
+     margin-top: 10px;
+     padding-top: 10px;
+    border-top: 2px solid lightgray;
+
+ }
+
+button.password {
+    background-color: brown;  
+}
+
+button.copy {
+    background-color: grey;
+
+    
+}
