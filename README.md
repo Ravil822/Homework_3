@@ -4,9 +4,10 @@
 
 I created an application of generate random password based on user-selected criteria. 
 
+
 * Used techology to make the project:
  * HTLM
- ![](photos\Screenshot20%(19).png)
+ ![](photos/Screenshot (19).png)
  * CSS
  * JS
 
