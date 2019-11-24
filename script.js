@@ -1,4 +1,6 @@
 // DOM elements
+alert('Length of your password must be between 8 and 128 characters');
+alert("Please choice characters type");
 const resultEl = document.getElementById('result');
 const lengthEl = document.getElementById('length');
 const uppercaseEl = document.getElementById('uppercase')
