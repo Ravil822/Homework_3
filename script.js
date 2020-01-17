@@ -1,30 +1,51 @@
 /// set varibles for buttons
-var generatePassword = document.getElementById("generate");
+var generatePasswordBotton = document.getElementById("generate");
 var copyPassword = document.getElementById("clipboard");
-// var numbers = "0123456789";
-// var loverCase = "abcdefghijklmnopqrstuvwxyz";
-// var upperCase = "ABCDEFGHIJKLMNOPQRDTUVWXYZ"
-var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-    var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = "0123456789";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRDTUVWXYZ"
 var symbols = "!@#$%^&*(){}{}=<>/<>"
 var passwordResult = document.getElementById("result");
 
+
 // varibles for password criteria
-var length = prompt("How many characters would you like? Must be must be between 8 and 128 characters");
-var useSymbols = confirm("Would you like to use symbols?");
-var useLower = confirm("Would you like to use lowercase letters?");
-var upperLower = confirm("Would you like to use uppercase letters?");
+var length, useSymbols, useLower, upperLower;
   
 function generatePasswordLeght() {
-    if (length < 8 || length < 128) {
+    console.log(length);
+    if (length < 8 || length > 128) {
         alert("Must be must be between 8 and 128 characters");
     } else {
-        password = numbers + loverCase + upperCase + symbols;
-        for (var i = 0; i < length; i++) {
-            var passwordResult = charAt(Math.floor(Math.random() * password.length))
+        var newPassword = generatePassword();
+        passwordResult.textContent = newPassword;
         }
-        console.log(passwordResult);
-
-
+        console.log(newPassword);
 }
+
+function generatePassword(){
+    var availbleCharacters = "";
+    availbleCharacters += numbers;
+    var password = "";
+    if(useSymbols){ 
+        availbleCharacters += symbols
+        password += symbols.charAt(Math.floor(Math.random() * symbols.length))
+    } 
+    if(useLower){ 
+        availbleCharacters += lowerCase
+        password += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length))
+    }
+    while(password.length < length) {
+        password += availbleCharacters.charAt(Math.floor(Math.random() * availbleCharacters.length))
+
+    }
+    return password
+};
+
+generatePasswordBotton.addEventListener("click", function(){
+ length = parseInt(prompt("How many characters would you like? Must be must be between 8 and 128 characters"));
+useSymbols = confirm("Would you like to use symbols?");
+useLower = confirm("Would you like to use lowercase letters?");
+upperLower = confirm("Would you like to use uppercase letters?");
+generatePasswordLeght();
+
+});
